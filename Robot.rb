@@ -7,6 +7,7 @@ class Robot
   attr_accessor :on_board
   @on_board
   @last_position
+  @@scent  = []
   def initialize(x, y, direction, commands)
 	@x = x
 	@y = y
@@ -59,6 +60,7 @@ class Robot
   	  @on_board = true
   	else
   	  @on_board = false
+  	  @@scent.push(@last_position)
   	end
   end
 end
