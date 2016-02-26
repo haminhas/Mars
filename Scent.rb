@@ -11,6 +11,7 @@ class Scent
   def self.same?(this, other)
   	if this.s_x == other.s_x && this.s_y == other.s_y && this.s_direction == other.s_direction
   		true
+      #puts 'Found matching scnet'
   	else
   		false
   	end

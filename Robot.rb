@@ -7,7 +7,7 @@ class Robot
   attr_accessor :on_board
   @on_board
   @last_position
-  @@scent  = []
+  @@scent = []
   def initialize(x, y, direction, commands)
 	@x = x
 	@y = y
@@ -30,7 +30,9 @@ class Robot
   end
 
   def foward
+  	# store the current positions incase the robot moves off the grid so we can leave a scent
     @last_position = Scent.new(@x, @y, @direction) 
+    #check for a scent
     return if check_scent?
   	case @direction
   	when 'N'
@@ -42,7 +44,7 @@ class Robot
   	when 'W'
 	  @x -= 1
     end
-    puts "Moving foward in #{@direction},new co-oridinates: #{@x}, #{@y}"
+    #puts "Moving foward in #{@direction},new co-oridinates: #{@x}, #{@y}"
     check_on_board?
   end
 
@@ -59,9 +61,12 @@ class Robot
   end
 
   def check_on_board?
+    # if the robot is not on the board then add the last postion it was on before going out
+    # of the grid as scent
   	if $top_right[0] >= @x && @x >= 0 && $top_right[1] >= @y && @y >= 0
   	  @on_board = true
   	else
+  	  #puts "Added scent at #{@last_position.x_value}, #{@last_position.y_value}, #{@last_position.direction}"
   	  @on_board = false
   	  @@scent.push(@last_position)
   	end
