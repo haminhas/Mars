@@ -59,6 +59,16 @@ class Robot
     check_on_board?
   end
 
+  def check_scent?
+  	if @@scent.empty?
+  	  false
+  	else
+  	  @@scent.each do |s|
+  		bool = true
+  	  end
+  	end
+  end
+
   def check_on_board?
   	if $top_right[0] >= @x && @x >= 0 && $top_right[1] >= @y && @y >= 0
   	  @on_board = true

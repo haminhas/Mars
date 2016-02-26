@@ -24,6 +24,11 @@ class Parser
      end
      break if robot.on_board == false
    end
+   if robot.on_board == true
+      puts "#{robot.x}, #{robot.y}, #{robot.direction}"
+    else
+      puts "#{robot.x}, #{robot.y}, #{robot.direction} LOST"
+    end
  end
 
  t = Parser.new
