@@ -15,32 +15,18 @@ class Robot
 	@commands = commands.split("")
    end
 
-  def left 
-  	case @direction
-  	when 'N'
-	  @direction = 'W'
-  	when 'E'
-	  @direction = 'N'
-  	when 'S'
-	  @direction = 'E'
-  	when 'W'
-	  @direction = 'S'
-  	end
-  	puts "New direction is #{@direction}"
-  end
-
-  def right 
-	case @direction
-	when 'N'
-	  @direction = 'E'
-	when 'E'
-	  @direction = 'S'
-	when 'S'
-	  @direction = 'W'
-	when 'W'
- 	  @direction = 'N'
-	end
-	puts "New direction is #{@direction}"
+  def turn(orientation)
+    case @direction
+    when 'N'
+      orientation == 'R' ? @direction = 'E' : @direction = 'W'
+    when 'E'
+      orientation == 'R' ? @direction = 'S' : @direction = 'N'
+    when 'S'
+      orientation == 'R' ? @direction = 'W' : @direction = 'E'
+    when 'W'
+      orientation == 'R' ? @direction = 'N' : @direction = 'S'
+    end
+    #puts "New direction is #{@direction}"
   end
 
   def foward

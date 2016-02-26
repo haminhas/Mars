@@ -16,9 +16,9 @@ class Parser
    	 next if command.to_s.empty?
      case command
      when 'R'
-       robot.right
+       robot.turn('R')
      when 'L'
-       robot.left
+       robot.turn('L')
      when 'F'
        robot.foward
      end
