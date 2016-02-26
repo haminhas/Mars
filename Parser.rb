@@ -10,6 +10,7 @@ class Parser
 
  def parse_instructions(robot)
    robot.commands.each do |command|
+   	 next if command.to_s.empty?
      case command
      when 'R'
        robot.right
@@ -18,6 +19,7 @@ class Parser
      when 'F'
        robot.foward
      end
+     break if robot.on_board == false
    end
  end
 
