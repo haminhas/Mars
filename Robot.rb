@@ -26,6 +26,7 @@ class Robot
   	when 'W'
 	  @direction = 'S'
   	end
+  	puts "New direction is #{@direction}"
   end
 
   def right 
@@ -39,6 +40,7 @@ class Robot
 	when 'W'
  	  @direction = 'N'
 	end
+	puts "New direction is #{@direction}"
   end
 
   def foward
@@ -53,9 +55,11 @@ class Robot
   	when 'W'
 	  @x -= 1
     end
+    puts "Moving foward in #{@direction},new co-oridinates: #{@x}, #{@y}"
+    check_on_board?
   end
 
-  def check_on_board
+  def check_on_board?
   	if $top_right[0] >= @x && @x >= 0 && $top_right[1] >= @y && @y >= 0
   	  @on_board = true
   	else

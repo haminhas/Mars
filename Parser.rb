@@ -5,6 +5,9 @@ class Parser
     r1 = Robot.new(1, 1, 'E', 'RFRFRFRF')
     r2 = Robot.new(3, 2, 'N', 'FRRFLLFFRRFLL')
     r3 = Robot.new(0, 3, 'W', 'LLFFFLFLFL')
+    parse_instructions(r1)
+    parse_instructions(r2)
+    parse_instructions(r3)
   end
  end
 
