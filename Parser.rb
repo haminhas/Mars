@@ -8,4 +8,17 @@ class Parser
   end
  end
 
+ def parse_instructions(robot)
+   robot.commands.each do |command|
+     case command
+     when 'R'
+       robot.right
+     when 'L'
+       robot.left
+     when 'F'
+       robot.foward
+     end
+   end
+ end
+
  t = Parser.new
