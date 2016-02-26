@@ -8,7 +8,7 @@ class Scent
   	@s_direction = direction
   end
 
-  def self.same(this, other)
+  def self.same?(this, other)
   	if this.s_x == other.s_x && this.s_y == other.s_y && this.s_direction == other.s_direction
   		true
   	else

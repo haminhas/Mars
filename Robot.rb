@@ -45,6 +45,7 @@ class Robot
 
   def foward
     @last_position = Scent.new(@x, @y, @direction) 
+    return if check_scent?
   	case @direction
   	when 'N'
 	  @y += 1
@@ -65,6 +66,8 @@ class Robot
   	else
   	  @@scent.each do |s|
   		bool = true
+  		Scent.same?(@last_position, s) ? bool = true : bool = false
+  		return bool
   	  end
   	end
   end
