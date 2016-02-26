@@ -1,3 +1,4 @@
+require_relative('Scent') 
 class Robot
   attr_accessor :x
   attr_accessor :y
@@ -5,6 +6,7 @@ class Robot
   attr_accessor :commands
   attr_accessor :on_board
   @on_board
+  @last_position
   def initialize(x, y, direction, commands)
 	@x = x
 	@y = y
@@ -38,7 +40,8 @@ class Robot
 	end
   end
 
-  def foward 
+  def foward
+    @last_position = Scent.new(@x, @y, @direction) 
   	case @direction
   	when 'N'
 	  @y += 1
